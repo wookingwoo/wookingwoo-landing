@@ -11,8 +11,8 @@ type LayoutProps = {
 
 const Layout = ({
     children,
-    title = 'Wookingwoo Portfolio',
-    description = 'Wookingwoo\'s personal portfolio website showcasing projects and skills',
+    title = 'wookingwoo world',
+    description = 'wookingwoo\'s personal portfolio website showcasing projects and skills',
 }: LayoutProps) => {
     return (
         <div className="flex flex-col min-h-screen">

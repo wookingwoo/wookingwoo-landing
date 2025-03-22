@@ -20,7 +20,7 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        Wookingwoo
+                        wookingwoo
                     </motion.h1>
                     <motion.p
                         className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"

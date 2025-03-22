@@ -1,6 +1,6 @@
-# Wookingwoo Portfolio
+# wookingwoo world
 
-This is a personal portfolio website showcasing Wookingwoo's projects and skills.
+This is a personal portfolio website showcasing wookingwoo's projects and skills.
 
 ## Features
 

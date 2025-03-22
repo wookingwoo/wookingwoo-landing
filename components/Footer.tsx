@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="mb-4 md:mb-0">
                         <Link href="/" className="text-xl font-bold text-primary">
-                            Wookingwoo
+                            wookingwoo
                         </Link>
                     </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
                 </div>
 
                 <div className="mt-8 text-center text-gray-500 dark:text-gray-400 text-sm">
-                    © {new Date().getFullYear()} Wookingwoo. All rights reserved.
+                    © {new Date().getFullYear()} wookingwoo. All rights reserved.
                 </div>
             </div>
         </footer>

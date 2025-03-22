@@ -2,13 +2,6 @@ import { Project } from "../components/ProjectCard";
 
 export const projects: Project[] = [
   {
-    id: "blog",
-    title: "Blog",
-    description: "Personal blog of wookingwoo.com",
-    url: "https://wookingwoo.com/blog/",
-    thumbnail: "/images/blog.jpg",
-  },
-  {
     id: "jjambot",
     title: "JJamBot (Military Information AI Chatbot)",
     description:
@@ -36,7 +29,7 @@ export const projects: Project[] = [
   },
   {
     id: "maptool",
-    title: "Wookingwoo Map Tool",
+    title: "wookingwoo Map Tool",
     description:
       "Click on the desired point on the map! Get road name address, parcel address, latitude, and longitude coordinates",
     url: "https://maptool.wookingwoo.com/",
