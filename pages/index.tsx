@@ -15,12 +15,12 @@ const Home = () => {
             <section className="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
                 <div className="container mx-auto px-4 text-center">
                     <motion.h1
-                        className="text-4xl md:text-6xl font-bold mb-6"
+                        className="text-3xl md:text-5xl font-bold mb-6"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        wookingwoo
+                        wookingwoo world
                     </motion.h1>
                     <motion.p
                         className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
@@ -45,7 +45,7 @@ const Home = () => {
                             GitHub
                         </a>
                         <a
-                            href="https://wookingwoo.com/blog/"
+                            href="https://blog.wookingwoo.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn bg-transparent border border-white hover:bg-white hover:text-blue-600"
@@ -104,7 +104,7 @@ const Home = () => {
                                 LinkedIn
                             </a>
                             <a
-                                href="https://wookingwoo.com/blog/"
+                                href="https://blog.wookingwoo.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-700 hover:text-primary dark:text-gray-300 flex flex-col items-center"
@@ -169,7 +169,7 @@ const Home = () => {
                     <h2 className="section-title">Get In Touch</h2>
                     <div className="max-w-md mx-auto text-center">
                         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                            Have a project in mind or just want to say hello? Feel free to reach out!
+                            Just want to say hello? Feel free to reach out!
                         </p>
                         <a
                             href="mailto:contact@wookingwoo.com"

@@ -19,7 +19,6 @@ export const techCategories = [
       "Django",
       "FastAPI",
       "Nest.js (Studying)",
-      "RESTful API",
     ],
   },
   {
@@ -33,7 +32,6 @@ export const techCategories = [
       "GCP",
       "Docker",
       "Kubernetes (Studying)",
-      "CI/CD",
       "GitHub Actions",
       "Jenkins",
       "Nginx",
@@ -45,6 +43,11 @@ export const techCategories = [
   },
   {
     name: "Other",
-    technologies: ["Android", "LLM", "Drone"],
+    technologies: [
+      "Android",
+      "LLM",
+      "Drone",
+      "Professional YouTube Watching (Expert Level)",
+    ],
   },
 ];

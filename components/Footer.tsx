@@ -30,7 +30,7 @@ const Footer = () => {
                             LinkedIn
                         </a>
                         <a
-                            href="https://wookingwoo.com/blog/"
+                            href="https://blog.wookingwoo.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 hover:text-primary dark:text-gray-400"

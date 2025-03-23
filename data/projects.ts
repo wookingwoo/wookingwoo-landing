@@ -2,34 +2,47 @@ import { Project } from "../components/ProjectCard";
 
 export const projects: Project[] = [
   {
+    id: "busition",
+    title: "Busition",
+    description: "Smart Bus Information System",
+    url: "https://busition.io",
+    thumbnail: "/images/busition.jpg",
+  },
+  {
     id: "jjambot",
-    title: "JJamBot (Military Information AI Chatbot)",
-    description:
-      "AI chatbot providing military menu and military life information via KakaoTalk",
+    title: "jjambot",
+    description: "Military Information AI Chatbot and Voicebot",
     url: "https://jjambot.wookingwoo.com/",
     demoVideo: "https://youtu.be/T5CePHuNTMQ",
     thumbnail: "/images/jjambot.jpg",
   },
   {
     id: "smartwork",
-    title: "Smart Military Work System",
+    title: "SmartWork for Military",
     description:
-      "A smart work processing system that can simplify existing tasks by maximizing sharing, collaboration, automation, and integrated management",
+      "Military workflow system that simplifies tasks through sharing, collaboration, automation, and centralized management",
     url: "https://smartwork.wookingwoo.com/",
     demoVideo: "https://youtu.be/jXw6aHWBcWw",
     thumbnail: "/images/smartwork.jpg",
   },
   {
     id: "animalface",
-    title: "AI Animal Face Test",
+    title: "AI Animal Face",
     description:
       "Find your animal lookalike! Artificial intelligence determines your animal lookalike and matching celebrities",
     url: "https://animalface.wookingwoo.com/",
     thumbnail: "/images/animalface.jpg",
   },
   {
+    id: "shorturl",
+    title: "URL Shortener (wkw.one)",
+    description: "Create shortened URLs for free",
+    url: "https://wkw.one/",
+    thumbnail: "/images/shorturl.jpg",
+  },
+  {
     id: "maptool",
-    title: "wookingwoo Map Tool",
+    title: "maptool",
     description:
       "Click on the desired point on the map! Get road name address, parcel address, latitude, and longitude coordinates",
     url: "https://maptool.wookingwoo.com/",
@@ -43,13 +56,7 @@ export const projects: Project[] = [
     url: "https://msg.wookingwoo.com/",
     thumbnail: "/images/webmessage.jpg",
   },
-  {
-    id: "shorturl",
-    title: "URL Shortener (wkw.one)",
-    description: "Create shortened URLs for free",
-    url: "https://wkw.one/",
-    thumbnail: "/images/shorturl.jpg",
-  },
+
   {
     id: "pi",
     title: "π (pi)",
