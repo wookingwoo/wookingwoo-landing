@@ -110,7 +110,7 @@ const Home = () => {
                                 className="text-gray-700 hover:text-primary dark:text-gray-300 flex flex-col items-center"
                             >
                                 <svg className="h-8 w-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19.998 2.177H4.002A2.002 2.002 0 002 4.179v15.996a2.002 2.002 0 002.002 2.002h15.996A2.002 2.002 0 0022 20.175V4.179a2.002 2.002 0 00-2.002-2.002zm-5.188 14.661h-2.83l-2.386-6.622h-.036v6.622h-2.57V7.064h3.353l2.16 6.019h.036v-6.02h2.273v9.774zm6.342 0h-3.7V7.064h3.7v9.774z" />
+                                    <path d="M0 3a3 3 0 1 0 6 0 3 3 0 0 0 -6 0m9 18a3 3 0 1 0 6 0 3 3 0 0 0 -6 0m0 -9a3 3 0 1 0 6 0 3 3 0 0 0 -6 0m0 -9a3 3 0 1 0 6 0 3 3 0 0 0 -6 0m9 0a3 3 0 1 0 6 0 3 3 0 0 0 -6 0" />
                                 </svg>
                                 Blog
                             </a>
