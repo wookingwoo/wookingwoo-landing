@@ -30,9 +30,9 @@ const mapContainerStyle = {
     height: '252px',
 };
 
-const center = {
-    lat: 30,
-    lng: 0,
+const southKoreaPosition = {
+    lat: 35.9078,
+    lng: 127.7669,
 };
 
 const TravelMap = ({ locations }: TravelMapProps) => {
@@ -81,7 +81,7 @@ const TravelMap = ({ locations }: TravelMapProps) => {
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 zoom={2}
-                center={center}
+                center={southKoreaPosition}
                 options={{
                     disableDefaultUI: true,
                     zoomControl: true,

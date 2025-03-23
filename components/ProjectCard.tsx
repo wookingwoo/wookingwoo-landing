@@ -26,8 +26,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <Image
                     src={project.thumbnail || '/images/placeholder.jpg'}
                     alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={project.thumbnail === '/images/projects/busition.jpg'}
+                    style={{ objectFit: "cover" }}
                 />
             </div>
             <div className="p-6">
