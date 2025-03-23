@@ -145,7 +145,7 @@ const Home = () => {
                                 <div className="aspect-video rounded-lg overflow-hidden bg-gray-200">
                                     {/* Placeholder for drone image */}
                                     <div className="w-full h-full flex items-center justify-center text-gray-500">
-                                        Drone Photography
+                                        <img src="/images/hobbies/drone.jpg" alt="Drone Photography" className="w-full h-full object-cover" />
                                     </div>
                                 </div>
                             </div>
