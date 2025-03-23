@@ -44,4 +44,9 @@ export const travelLocations = [
     lat: 41.9028,
     lng: 12.4964, // Rome
   },
+  {
+    country: "Vatican",
+    lat: 41.9022,
+    lng: 12.4539,
+  },
 ];
