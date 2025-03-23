@@ -93,7 +93,7 @@ const Home = () => {
                                 GitHub
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/wookingwoo/"
+                                href="https://www.linkedin.com/in/ronny-woo"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-700 hover:text-primary dark:text-gray-300 flex flex-col items-center"

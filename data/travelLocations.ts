@@ -2,42 +2,37 @@ export const travelLocations = [
   {
     country: "South Korea",
     lat: 37.5665,
-    lng: 126.978,
+    lng: 126.978, // Seoul
+  },
+  {
+    country: "China",
+    lat: 31.2304,
+    lng: 121.4737, // Shanghai
+  },
+  {
+    country: "Taiwan",
+    lat: 25.033,
+    lng: 121.5654, // Taipei
+  },
+  {
+    country: "Singapore",
+    lat: 1.3521,
+    lng: 103.8198,
+  },
+  {
+    country: "Australia",
+    lat: -33.8688,
+    lng: 151.2093, // Sydney
   },
   {
     country: "Japan",
-    lat: 35.6762,
-    lng: 139.6503,
+    lat: 34.6937,
+    lng: 135.5023, // Osaka
   },
   {
-    country: "United States",
-    lat: 37.7749,
-    lng: -122.4194, // San Francisco
-  },
-  {
-    country: "United Kingdom",
-    lat: 51.5074,
-    lng: -0.1278, // London
-  },
-  {
-    country: "France",
-    lat: 48.8566,
-    lng: 2.3522, // Paris
-  },
-  {
-    country: "Germany",
-    lat: 52.52,
-    lng: 13.405, // Berlin
-  },
-  {
-    country: "Italy",
-    lat: 41.9028,
-    lng: 12.4964, // Rome
-  },
-  {
-    country: "Spain",
-    lat: 40.4168,
-    lng: -3.7038, // Madrid
+    country: "Philippines",
+    lat: 10.3157,
+    lng: 123.8854, // Cebu
   },
   {
     country: "Thailand",
@@ -45,8 +40,8 @@ export const travelLocations = [
     lng: 100.5018, // Bangkok
   },
   {
-    country: "Singapore",
-    lat: 1.3521,
-    lng: 103.8198,
+    country: "Italy",
+    lat: 41.9028,
+    lng: 12.4964, // Rome
   },
 ];
