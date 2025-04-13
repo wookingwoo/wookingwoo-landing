@@ -29,6 +29,8 @@ const Home = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
                         Developer & Creator
+
+                        Hello! I'm a developer who loves creating innovative solutions. I'm passionate about developing user-centric services and enjoy learning and applying new technologies.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0 }}
