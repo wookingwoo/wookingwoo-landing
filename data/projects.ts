@@ -71,4 +71,12 @@ export const projects: Project[] = [
     url: "https://pi.wookingwoo.com/",
     thumbnail: "/images/projects/pi.jpg",
   },
+  {
+    id: "pinecone-dashboard",
+    title: "Pinecone Dashboard",
+    description:
+      "A comprehensive web dashboard for managing Pinecone vector databases.",
+    url: "https://pinecone.ronny.dev/",
+    thumbnail: "/images/projects/pinecone-dashboard.svg",
+  },
 ];
