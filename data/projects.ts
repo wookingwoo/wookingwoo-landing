@@ -49,6 +49,13 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/wkwone.jpg",
   },
   {
+    id: "mini-game-collection",
+    title: "Mini Game Collection",
+    description: "A collection of fun browser-based mini games",
+    url: "https://game.wookingwoo.com/",
+    thumbnail: "/images/projects/mini-game-collection.png",
+  },
+  {
     id: "maptool",
     title: "maptool",
     description:
