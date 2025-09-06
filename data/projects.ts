@@ -9,6 +9,14 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/busition.jpg",
   },
   {
+    id: "pinecone-dashboard",
+    title: "Pinecone Dashboard",
+    description:
+      "A comprehensive web dashboard for managing Pinecone vector databases.",
+    url: "https://pinecone.ronny.dev/",
+    thumbnail: "/images/projects/pinecone-dashboard.png",
+  },
+  {
     id: "jjambot",
     title: "jjambot",
     description: "Military Information AI Chatbot and Voicebot",
@@ -70,13 +78,5 @@ export const projects: Project[] = [
     description: "Where does the value of π (pi) end?",
     url: "https://pi.wookingwoo.com/",
     thumbnail: "/images/projects/pi.jpg",
-  },
-  {
-    id: "pinecone-dashboard",
-    title: "Pinecone Dashboard",
-    description:
-      "A comprehensive web dashboard for managing Pinecone vector databases.",
-    url: "https://pinecone.ronny.dev/",
-    thumbnail: "/images/projects/pinecone-dashboard.svg",
   },
 ];
