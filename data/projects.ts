@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: "busition",
     title: "Busition",
     description: "Smart Bus Information System",
-    url: "https://busition.io",
+    url: "https://www.busition.com",
     thumbnail: "/images/projects/busition.jpg",
   },
   {
