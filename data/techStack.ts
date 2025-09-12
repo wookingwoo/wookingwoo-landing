@@ -22,8 +22,26 @@ export const techCategories = [
     ],
   },
   {
+    name: "AI & LLM",
+    technologies: [
+      "LangChain",
+      "RAG",
+      "AI Agent Development",
+      "Retrieval",
+      "Generation",
+      "Vector Search",
+    ],
+  },
+  {
     name: "Database",
-    technologies: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase"],
+    technologies: [
+      "MongoDB",
+      "Pinecone",
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Firebase",
+    ],
   },
   {
     name: "DevOps & Cloud",
@@ -31,7 +49,7 @@ export const techCategories = [
       "AWS",
       "GCP",
       "Docker",
-      "Kubernetes (Studying)",
+      "Kubernetes",
       "GitHub Actions",
       "Jenkins",
       "Nginx",
@@ -39,15 +57,12 @@ export const techCategories = [
   },
   {
     name: "IOT",
-    technologies: ["Raspberry Pi", "Arduino", "Home Assistant"],
-  },
-  {
-    name: "Other",
     technologies: [
+      "Raspberry Pi",
+      "Arduino",
       "Android",
-      "LLM",
       "Drone",
-      "Professional YouTube Watching (Expert Level)",
+      "Home Assistant",
     ],
   },
 ];
