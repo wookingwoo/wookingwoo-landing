@@ -17,6 +17,14 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/pinecone-dashboard.png",
   },
   {
+    id: "trainmate",
+    title: "TrainMate",
+    description:
+      "Real-time communication platform for subway passengers. Share live environmental updates and chat with fellow commuters.",
+    url: "https://trainmate.ronny.dev/",
+    thumbnail: "/images/projects/trainmate.png",
+  },
+  {
     id: "jjambot",
     title: "jjambot",
     description: "Military Information AI Chatbot and Voicebot",
@@ -47,6 +55,14 @@ export const projects: Project[] = [
     description: "Create shortened URLs for free",
     url: "https://wkw.one/",
     thumbnail: "/images/projects/wkwone.jpg",
+  },
+  {
+    id: "trip-guide",
+    title: "Trip Guide",
+    description:
+      "Premium travel companion featuring detailed city guides, attractions, and local tips in multiple languages.",
+    url: "https://trip.ronny.dev/",
+    thumbnail: "/images/projects/trip-guide.png",
   },
   {
     id: "mini-game-collection",
