@@ -57,14 +57,6 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/wkwone.jpg",
   },
   {
-    id: "trip-guide",
-    title: "Trip Guide",
-    description:
-      "Premium travel companion featuring detailed city guides, attractions, and local tips in multiple languages.",
-    url: "https://trip.ronny.dev/",
-    thumbnail: "/images/projects/trip-guide.png",
-  },
-  {
     id: "mini-game-collection",
     title: "Mini Game Collection",
     description: "A collection of fun browser-based mini games",
@@ -94,6 +86,14 @@ export const projects: Project[] = [
       "Provides information such as IP address, Country, Region, Timezone, ASN, User agent. curl requests are also supported",
     url: "http://ip.wookingwoo.com/",
     thumbnail: "/images/projects/ip.jpg",
+  },
+  {
+    id: "trip-guide",
+    title: "Trip Guide",
+    description:
+      "Premium travel companion featuring detailed city guides, attractions, and local tips in multiple languages.",
+    url: "https://trip.ronny.dev/",
+    thumbnail: "/images/projects/trip-guide.png",
   },
   {
     id: "pi",
