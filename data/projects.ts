@@ -25,6 +25,14 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/trainmate.png",
   },
   {
+    id: "blockchain-simulator",
+    title: "Blockchain Simulator",
+    description:
+      "An interactive simulator for learning blockchain mining via real-time hash puzzles and miner competition.",
+    url: "https://blockchain.ronny.dev/",
+    thumbnail: "/images/projects/blockchain-simulator.png",
+  },
+  {
     id: "jjambot",
     title: "jjambot",
     description: "Military Information AI Chatbot and Voicebot",
