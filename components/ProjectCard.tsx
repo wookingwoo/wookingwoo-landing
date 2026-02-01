@@ -8,6 +8,7 @@ export type Project = {
     description: string;
     url: string;
     demoVideo?: string;
+    githubUrl?: string;
     thumbnail: string;
 };
 
@@ -44,6 +45,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     >
                         Visit Project
                     </a>
+
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn bg-gray-800 text-white hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm"
+                        >
+                            GitHub
+                        </a>
+                    )}
 
                     {project.demoVideo && (
                         <a
