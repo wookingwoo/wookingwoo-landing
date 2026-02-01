@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description:
       "Military workflow system that simplifies tasks through sharing, collaboration, automation, and centralized management",
     url: "https://smartwork.wookingwoo.com/",
-    demoVideo: "https://youtu.be/jXw6aHWBcWw",
+    demoVideo: "https://youtu.be/SzKkY0cwswE?si=pTAfjdDq9B2UkCxB",
     githubUrl: "https://github.com/wookingwoo",
     thumbnail: "/images/projects/smartwork.jpg",
   },
