@@ -19,11 +19,11 @@ type ProjectCardProps = {
 const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <motion.div
-            className="project-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md"
+            className="project-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md flex flex-col"
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
         >
-            <div className="relative h-48 w-full">
+            <div className="relative h-48 w-full flex-shrink-0">
                 <Image
                     src={project.thumbnail || '/images/placeholder.jpg'}
                     alt={project.title}
@@ -33,9 +33,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     style={{ objectFit: "cover" }}
                 />
             </div>
-            <div className="p-6">
+            <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{project.description}</p>
                 <div className="flex items-center justify-between">
                     <a
                         href={project.url}
