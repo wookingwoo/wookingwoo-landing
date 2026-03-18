@@ -73,6 +73,15 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/wkwone.jpg",
   },
   {
+    id: "firedump",
+    title: "FireDump",
+    description:
+      "Backup Firestore collections as JSON with a simple web UI and no credential storage.",
+    url: "https://firedump.ronny.dev",
+    githubUrl: "https://github.com/wookingwoo/firedump",
+    thumbnail: "/images/projects/firedump.png",
+  },
+  {
     id: "mini-game-collection",
     title: "Mini Game Collection",
     description: "A collection of fun browser-based mini games",
