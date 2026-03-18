@@ -28,15 +28,6 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/trainmate.png",
   },
   {
-    id: "blockchain-simulator",
-    title: "Blockchain Simulator",
-    description:
-      "An interactive simulator for learning blockchain mining via real-time hash puzzles and miner competition.",
-    url: "https://blockchain.ronny.dev/",
-    githubUrl: "https://github.com/wookingwoo/blockchain-simulator",
-    thumbnail: "/images/projects/blockchain-simulator.png",
-  },
-  {
     id: "jjambot",
     title: "jjambot",
     description: "Military Information AI Chatbot and Voicebot",
@@ -71,6 +62,15 @@ export const projects: Project[] = [
     url: "https://wkw.one/",
     githubUrl: "https://github.com/wookingwoo/wkw-short-url",
     thumbnail: "/images/projects/wkwone.jpg",
+  },
+  {
+    id: "blockchain-simulator",
+    title: "Blockchain Simulator",
+    description:
+      "An interactive simulator for learning blockchain mining via real-time hash puzzles and miner competition.",
+    url: "https://blockchain.ronny.dev/",
+    githubUrl: "https://github.com/wookingwoo/blockchain-simulator",
+    thumbnail: "/images/projects/blockchain-simulator.png",
   },
   {
     id: "firedump",
