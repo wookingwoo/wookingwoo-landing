@@ -36,23 +36,13 @@ const Home = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex justify-center space-x-4"
+                        className="flex justify-center"
                     >
                         <a
-                            href="https://github.com/wookingwoo"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn bg-white text-blue-600 hover:bg-gray-100"
+                            href="#about"
+                            className="btn bg-transparent border border-white text-white hover:bg-white hover:text-blue-600"
                         >
-                            GitHub
-                        </a>
-                        <a
-                            href="https://blog.wookingwoo.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn bg-transparent border border-white hover:bg-white hover:text-blue-600"
-                        >
-                            Blog
+                            About Me
                         </a>
                     </motion.div>
                 </div>
