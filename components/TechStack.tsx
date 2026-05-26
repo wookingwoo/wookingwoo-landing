@@ -1,10 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-type TechCategory = {
-    name: string;
-    technologies: string[];
-};
+import type { TechCategory } from '../data/types';
 
 type TechStackProps = {
     categories: TechCategory[];
@@ -41,4 +37,4 @@ const TechStack = ({ categories }: TechStackProps) => {
     );
 };
 
-export default TechStack; 
+export default TechStack;

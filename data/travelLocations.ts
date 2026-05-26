@@ -1,4 +1,6 @@
-export const travelLocations = [
+import type { TravelLocation } from "./types";
+
+export const travelLocations: TravelLocation[] = [
   {
     country: "South Korea",
     lat: 37.5665,

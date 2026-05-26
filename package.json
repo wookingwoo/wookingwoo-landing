@@ -2,27 +2,34 @@
   "name": "wookingwoo-landing",
   "version": "1.0.0",
   "scripts": {
-    "dev": "WATCHPACK_POLLING=true next dev",
-    "build": "next build",
+    "dev": "WATCHPACK_POLLING=true next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:theme": "tsc --outDir .tmp/theme-test --module commonjs --target ES2022 --moduleResolution node --types node --skipLibCheck tests/theme.test.ts && node --test .tmp/theme-test/tests/theme.test.js",
+    "audit:prod": "npm audit --omit=dev"
   },
   "keywords": [],
   "author": "wookingwoo",
-  "license": "ISC",
+  "license": "MIT",
   "description": "wookingwoo's portfolio website",
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "@react-google-maps/api": "^2.19.2",
+    "framer-motion": "^11.0.5",
+    "next": "^16.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
-    "framer-motion": "^11.0.5",
-    "next": "14.2.35",
-    "postcss": "^8.4.35",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
+    "postcss": "^8.5.15",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }

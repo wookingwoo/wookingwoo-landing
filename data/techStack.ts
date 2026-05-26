@@ -1,4 +1,6 @@
-export const techCategories = [
+import type { TechCategory } from "./types";
+
+export const techCategories: TechCategory[] = [
   {
     name: "Frontend",
     technologies: [
