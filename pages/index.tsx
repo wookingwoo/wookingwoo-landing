@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import ProjectCard from '../components/ProjectCard';
@@ -30,7 +31,7 @@ const Home = () => {
                     >
                         Developer & Creator
 
-                        Hello! I'm a developer who loves creating innovative solutions. I'm passionate about developing user-centric services and enjoy learning and applying new technologies.
+                        Hello! I&apos;m a developer who loves creating innovative solutions. I&apos;m passionate about developing user-centric services and enjoy learning and applying new technologies.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -142,15 +143,18 @@ const Home = () => {
                                     </a>
                                 </div>
                                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                                    I'm passionate about capturing aerial perspectives with drones.
+                                    I&apos;m passionate about capturing aerial perspectives with drones.
                                     Exploring new heights and angles allows me to see the world from
                                     a different perspective.
                                 </p>
-                                <div className="aspect-video rounded-lg overflow-hidden bg-gray-200">
-                                    {/* Placeholder for drone image */}
-                                    <div className="w-full h-full flex items-center justify-center text-gray-500">
-                                        <img src="/images/hobbies/drone.jpg" alt="Drone Photography" className="w-full h-full object-cover" />
-                                    </div>
+                                <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
+                                    <Image
+                                        src="/images/hobbies/drone.jpg"
+                                        alt="Drone Photography"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover"
+                                    />
                                 </div>
                             </div>
 
@@ -158,7 +162,7 @@ const Home = () => {
                                 <h4 className="text-xl font-semibold mb-4">World Travel</h4>
                                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                                     Traveling allows me to experience different cultures, meet new people,
-                                    and gather inspiration from around the world. Below is a map of countries I've visited.
+                                    and gather inspiration from around the world. Below is a map of countries I&apos;ve visited.
                                 </p>
                                 <TravelMap locations={travelLocations} />
                             </div>

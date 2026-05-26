@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleMap, useLoadScript, Marker, Polygon } from '@react-google-maps/api';
+import React, { useEffect, useMemo, useState } from 'react';
+import { GoogleMap, useLoadScript, Polygon } from '@react-google-maps/api';
 
 type Location = {
     country: string;
@@ -11,18 +11,30 @@ type TravelMapProps = {
     locations: Location[];
 };
 
+type Coordinate = [lng: number, lat: number];
+type LinearRing = Coordinate[];
+type PolygonCoordinates = LinearRing[];
+type MultiPolygonCoordinates = PolygonCoordinates[];
+
+type CountryFeature = {
+    type: string;
+    properties: {
+        ADMIN: string;
+    };
+    geometry:
+        | {
+            type: 'Polygon';
+            coordinates: PolygonCoordinates;
+        }
+        | {
+            type: 'MultiPolygon';
+            coordinates: MultiPolygonCoordinates;
+        };
+};
+
 type CountryData = {
     type: string;
-    features: {
-        type: string;
-        properties: {
-            ADMIN: string;
-        };
-        geometry: {
-            type: string;
-            coordinates: any[];
-        };
-    }[];
+    features: CountryFeature[];
 };
 
 const mapContainerStyle = {
@@ -37,44 +49,31 @@ const southKoreaPosition = {
 
 const TravelMap = ({ locations }: TravelMapProps) => {
     const [countryData, setCountryData] = useState<CountryData | null>(null);
-    const [visitedCountries, setVisitedCountries] = useState<string[]>([]);
+    const visitedCountries = useMemo(
+        () => new Set(locations.map(location => location.country)),
+        [locations]
+    );
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
     });
 
     useEffect(() => {
-        // Extract country names from locations
-        const countries = locations.map(loc => loc.country);
-        setVisitedCountries(countries);
-
-        // Load GeoJSON data
         fetch('/countries.geo.json')
             .then(response => response.json())
-            .then(data => {
+            .then((data: CountryData) => {
                 setCountryData(data);
             })
             .catch(error => {
                 console.error('Error loading GeoJSON data:', error);
             });
-    }, [locations]);
+    }, []);
 
     if (loadError) return <div className="text-center py-8">Error loading maps</div>;
     if (!isLoaded) return <div className="text-center py-8">Loading maps...</div>;
 
-    // Function to format coordinates for Google Maps Polygon
-    const formatCoordinates = (coordinates: any[]) => {
-        if (!coordinates || coordinates.length === 0) return [];
-
-        // Handle different geometry types
-        if (coordinates[0][0] && typeof coordinates[0][0] === 'number') {
-            // Simple polygon
-            return coordinates.map(coord => ({ lat: coord[1], lng: coord[0] }));
-        } else {
-            // MultiPolygon or complex polygon with holes
-            return coordinates[0].map(coord => ({ lat: coord[1], lng: coord[0] }));
-        }
-    };
+    const formatCoordinates = (coordinates: LinearRing) =>
+        coordinates.map(([lng, lat]) => ({ lat, lng }));
 
     return (
         <div className="rounded-lg overflow-hidden shadow-lg">
@@ -103,13 +102,13 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                 {countryData?.features.map((feature, featureIndex) => {
 
                     // Check if this country has been visited
-                    const isVisited = visitedCountries.includes(feature.properties.ADMIN);
+                    const isVisited = visitedCountries.has(feature.properties.ADMIN);
 
                     if (isVisited && feature.geometry.type === 'Polygon') {
                         return (
                             <Polygon
                                 key={`polygon-${featureIndex}`}
-                                paths={formatCoordinates(feature.geometry.coordinates)}
+                                paths={formatCoordinates(feature.geometry.coordinates[0])}
                                 options={{
                                     fillColor: '#4285F4',
                                     fillOpacity: 0.6,
@@ -123,7 +122,7 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                         return feature.geometry.coordinates.map((polygon, polygonIndex) => (
                             <Polygon
                                 key={`multipolygon-${featureIndex}-${polygonIndex}`}
-                                paths={formatCoordinates([polygon[0]])}
+                                paths={formatCoordinates(polygon[0])}
                                 options={{
                                     fillColor: '#4285F4',
                                     fillOpacity: 0.6,
@@ -150,4 +149,4 @@ const TravelMap = ({ locations }: TravelMapProps) => {
     );
 };
 
-export default TravelMap; 
+export default TravelMap;
