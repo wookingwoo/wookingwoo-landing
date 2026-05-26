@@ -19,8 +19,11 @@ const Header = () => {
                 {/* Mobile menu button */}
                 <button
                     type="button"
-                    className="md:hidden text-gray-500 focus:outline-none"
+                    className="rounded-md p-2 text-gray-500 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:hidden"
                     onClick={toggleMenu}
+                    aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-expanded={isMenuOpen}
+                    aria-controls="mobile-navigation"
                 >
                     {isMenuOpen ? (
                         <XMarkIcon className="h-6 w-6" />
@@ -48,7 +51,7 @@ const Header = () => {
 
             {/* Mobile navigation */}
             {isMenuOpen && (
-                <div className="md:hidden">
+                <div id="mobile-navigation" className="md:hidden">
                     <div className="container mx-auto px-4 py-2 space-y-2 bg-white dark:bg-gray-900">
                         <Link href="/"
                             className="block py-2 text-gray-700 hover:text-primary dark:text-gray-300"
@@ -77,4 +80,4 @@ const Header = () => {
     );
 };
 
-export default Header; 
+export default Header;

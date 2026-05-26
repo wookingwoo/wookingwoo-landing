@@ -47,11 +47,16 @@ The site still renders a visited-country fallback without this key.
 npm run dev
 npm run lint
 npm run typecheck
+npm run audit:prod
 npm run build
 npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) after starting the development server.
+
+## Security Notes
+
+Run `npm run audit:prod` to check production dependencies. If npm reports the Next.js bundled PostCSS advisory, update `next` when a stable patched release is available. Do not use `npm audit fix --force` for that advisory unless the proposed Next.js version change has been reviewed, because npm can suggest a breaking downgrade.
 
 ## License
 

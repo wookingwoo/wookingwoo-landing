@@ -1,16 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-
-export type Project = {
-    id: string;
-    title: string;
-    description: string;
-    url: string;
-    demoVideo?: string;
-    githubUrl?: string;
-    thumbnail: string;
-};
+import type { Project } from '../data/types';
 
 type ProjectCardProps = {
     project: Project;

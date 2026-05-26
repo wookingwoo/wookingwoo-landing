@@ -1,14 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { GoogleMap, useLoadScript, Polygon } from '@react-google-maps/api';
-
-type Location = {
-    country: string;
-    lat: number;
-    lng: number;
-};
+import type { TravelLocation } from '../data/types';
 
 type TravelMapProps = {
-    locations: Location[];
+    locations: TravelLocation[];
 };
 
 type Coordinate = [lng: number, lat: number];
@@ -105,6 +100,26 @@ const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) 
     const formatCoordinates = (coordinates: LinearRing) =>
         coordinates.map(([lng, lat]) => ({ lat, lng }));
 
+    const renderVisitedPolygon = (linearRing: LinearRing | undefined, key: string) => {
+        if (!linearRing) {
+            return null;
+        }
+
+        return (
+            <Polygon
+                key={key}
+                paths={formatCoordinates(linearRing)}
+                options={{
+                    fillColor: '#4285F4',
+                    fillOpacity: 0.6,
+                    strokeColor: '#4285F4',
+                    strokeOpacity: 1,
+                    strokeWeight: 1,
+                }}
+            />
+        );
+    };
+
     return (
         <div className="rounded-lg overflow-hidden shadow-lg">
             <GoogleMap
@@ -132,32 +147,16 @@ const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) 
                     const isVisited = visitedCountries.has(feature.properties.ADMIN);
 
                     if (isVisited && feature.geometry.type === 'Polygon') {
-                        return (
-                            <Polygon
-                                key={`polygon-${featureIndex}`}
-                                paths={formatCoordinates(feature.geometry.coordinates[0])}
-                                options={{
-                                    fillColor: '#4285F4',
-                                    fillOpacity: 0.6,
-                                    strokeColor: '#4285F4',
-                                    strokeOpacity: 1,
-                                    strokeWeight: 1
-                                }}
-                            />
+                        return renderVisitedPolygon(
+                            feature.geometry.coordinates[0],
+                            `polygon-${featureIndex}`
                         );
                     } else if (isVisited && feature.geometry.type === 'MultiPolygon') {
                         return feature.geometry.coordinates.map((polygon, polygonIndex) => (
-                            <Polygon
-                                key={`multipolygon-${featureIndex}-${polygonIndex}`}
-                                paths={formatCoordinates(polygon[0])}
-                                options={{
-                                    fillColor: '#4285F4',
-                                    fillOpacity: 0.6,
-                                    strokeColor: '#4285F4',
-                                    strokeOpacity: 1,
-                                    strokeWeight: 1
-                                }}
-                            />
+                            renderVisitedPolygon(
+                                polygon[0],
+                                `multipolygon-${featureIndex}-${polygonIndex}`
+                            )
                         ));
                     }
                     return null;
