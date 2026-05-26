@@ -15,7 +15,7 @@ const siteName = 'wookingwoo world';
 const Layout = ({
     children,
     title = 'wookingwoo world',
-    description = 'Portfolio of wookingwoo, a developer building web services, automation tools, and AI-powered products.',
+    description = 'wookingwoo\'s personal portfolio website showcasing projects and skills',
 }: LayoutProps) => {
     return (
         <div className="flex flex-col min-h-screen">
