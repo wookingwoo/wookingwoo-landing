@@ -24,39 +24,53 @@ const Home = () => {
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <div className="container mx-auto px-4 text-center">
-                    <motion.h1
-                        className="text-3xl md:text-5xl font-bold mb-6"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        wookingwoo world
-                    </motion.h1>
-                    <motion.p
-                        className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        Developer & Creator
-
-                        Hello! I&apos;m a developer who loves creating innovative solutions. I&apos;m passionate about developing user-centric services and enjoy learning and applying new technologies.
-                    </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex justify-center"
-                    >
-                        <a
-                            href="#about"
-                            className="btn bg-transparent border border-white text-white hover:bg-white hover:text-blue-600"
+            <section className="relative min-h-[520px] overflow-hidden text-white">
+                <Image
+                    src="/images/hobbies/drone.jpg"
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/55" />
+                <div className="container relative z-10 flex min-h-[520px] items-center px-4 py-20 text-center">
+                    <div className="mx-auto max-w-3xl">
+                        <motion.h1
+                            className="mb-6 text-4xl font-bold md:text-6xl"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            About Me
-                        </a>
-                    </motion.div>
+                            wookingwoo world
+                        </motion.h1>
+                        <motion.div
+                            className="mx-auto mb-8 max-w-3xl"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            <p className="mb-3 text-lg font-semibold md:text-xl">
+                                Developer & Creator
+                            </p>
+                            <p className="text-base leading-relaxed md:text-xl">
+                                I build practical web services, automation tools, and AI-powered products with a focus on useful user experiences.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            className="flex justify-center"
+                        >
+                            <a
+                                href="#about"
+                                className="btn border border-white bg-transparent text-white hover:bg-white hover:text-blue-600"
+                            >
+                                About Me
+                            </a>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -79,12 +93,12 @@ const Home = () => {
 
                     <div className="max-w-3xl mx-auto mb-16">
                         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 text-center">
-                            I am a passionate developer focused on creating innovative web applications
-                            and services that provide value to users. With expertise in both frontend and
-                            backend technologies, I enjoy building complete, end-to-end solutions.
+                            I work across frontend, backend, AI, and automation projects,
+                            turning small product ideas into deployed services that are useful,
+                            maintainable, and easy to operate.
                         </p>
 
-                        <div className="flex justify-center space-x-8 mb-12">
+                        <div className="mb-12 flex flex-wrap justify-center gap-6 md:gap-8">
                             <a
                                 href="https://github.com/wookingwoo"
                                 target="_blank"
@@ -188,7 +202,7 @@ const Home = () => {
                     <h2 className="section-title">Get In Touch</h2>
                     <div className="max-w-md mx-auto text-center">
                         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                            Just want to say hello? Feel free to reach out!
+                            Have a project idea, collaboration, or technical question? Send a note and I&apos;ll get back to you.
                         </p>
                         <a
                             href="mailto:contact@wookingwoo.com"
@@ -203,4 +217,4 @@ const Home = () => {
     );
 };
 
-export default Home; 
+export default Home;

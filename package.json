@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "wookingwoo",
-  "license": "ISC",
+  "license": "MIT",
   "description": "wookingwoo's portfolio website",
   "dependencies": {
     "@heroicons/react": "^2.1.1",
