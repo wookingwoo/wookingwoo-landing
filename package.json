@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test:theme": "tsc --outDir .tmp/theme-test --module commonjs --target ES2022 --moduleResolution node --types node --skipLibCheck tests/theme.test.ts && node --test .tmp/theme-test/tests/theme.test.js",
+    "test:styles": "tsc --outDir .tmp/style-test --module commonjs --target ES2022 --moduleResolution node --types node --skipLibCheck tests/dark-mode-styles.test.ts && node --test .tmp/style-test/dark-mode-styles.test.js",
     "audit:prod": "npm audit --omit=dev"
   },
   "keywords": [],
