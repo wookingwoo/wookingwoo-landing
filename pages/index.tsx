@@ -13,7 +13,7 @@ const TravelMap = dynamic(() => import('../components/TravelMap'), {
     ssr: false,
     loading: () => (
         <div
-            className="h-[252px] rounded-lg border border-gray-100 bg-gray-100 dark:border-slate-800/80 dark:bg-slate-900/80"
+            className="h-[252px] rounded-lg border border-gray-100 bg-gray-100 dark:border-slate-700/70 dark:bg-slate-800/80 dark:ring-1 dark:ring-white/5"
             role="status"
             aria-label="Loading travel map"
         />
@@ -153,7 +153,7 @@ const Home = () => {
                         <h3 className="mb-8 text-center text-2xl font-semibold dark:text-slate-100">Hobbies</h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-800/80 dark:bg-slate-900/80 dark:shadow-xl dark:shadow-black/30">
+                            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-xl dark:shadow-black/30 dark:ring-1 dark:ring-white/5">
                                 <div className="flex items-center mb-4">
                                     <h4 className="text-xl font-semibold dark:text-slate-100">Drone Photography</h4>
                                     <a
@@ -184,7 +184,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-800/80 dark:bg-slate-900/80 dark:shadow-xl dark:shadow-black/30">
+                            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-xl dark:shadow-black/30 dark:ring-1 dark:ring-white/5">
                                 <h4 className="mb-4 text-xl font-semibold dark:text-slate-100">World Travel</h4>
                                 <p className="mb-4 text-gray-700 dark:text-slate-300">
                                     Traveling allows me to experience different cultures, meet new people,

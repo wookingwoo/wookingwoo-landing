@@ -19,14 +19,16 @@ test('header dark mode is translucent and layered', () => {
     assert.match(header, /backdrop-blur/);
 });
 
-test('dark cards use borders and shadow depth instead of flat gray blocks', () => {
+test('dark cards use a clearly raised surface against the page background', () => {
     const projectCard = readSource('components/ProjectCard.tsx');
     const techStack = readSource('components/TechStack.tsx');
     const page = readSource('pages/index.tsx');
+    const travelMap = readSource('components/TravelMap.tsx');
 
-    for (const source of [projectCard, techStack, page]) {
-        assert.match(source, /dark:border-slate-800\/80/);
-        assert.match(source, /dark:bg-slate-900\/80/);
+    for (const source of [projectCard, techStack, page, travelMap]) {
+        assert.match(source, /dark:border-slate-700\/70/);
+        assert.match(source, /dark:bg-slate-800\/80/);
+        assert.match(source, /dark:ring-white\/5/);
         assert.match(source, /dark:shadow-black\/30/);
     }
 });

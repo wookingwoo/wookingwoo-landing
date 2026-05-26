@@ -12,7 +12,7 @@ const TechStack = ({ categories }: TechStackProps) => {
             {categories.map((category, index) => (
                 <motion.div
                     key={index}
-                    className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-800/80 dark:bg-slate-900/80 dark:shadow-xl dark:shadow-black/30"
+                    className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-xl dark:shadow-black/30 dark:ring-1 dark:ring-white/5"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

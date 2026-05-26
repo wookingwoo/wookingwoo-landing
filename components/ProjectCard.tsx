@@ -12,7 +12,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
     return (
         <motion.div
-            className="project-card flex flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-slate-800/80 dark:bg-slate-900/80 dark:shadow-xl dark:shadow-black/30"
+            className="project-card flex flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-xl dark:shadow-black/30 dark:ring-1 dark:ring-white/5"
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
         >

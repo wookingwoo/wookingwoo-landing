@@ -43,7 +43,7 @@ const southKoreaPosition = {
 };
 
 const VisitedCountriesFallback = ({ locations }: TravelMapProps) => (
-    <div className="rounded-lg border border-gray-100 bg-gray-100 p-4 shadow-inner dark:border-slate-800/80 dark:bg-slate-900/80 dark:shadow-black/30">
+    <div className="rounded-lg border border-gray-100 bg-gray-100 p-4 shadow-inner dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-black/30 dark:ring-1 dark:ring-white/5">
         <p className="mb-3 text-sm font-medium text-gray-700 dark:text-slate-200">
             Visited countries
         </p>
@@ -121,7 +121,7 @@ const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) 
     };
 
     return (
-        <div className="overflow-hidden rounded-lg shadow-lg dark:border dark:border-slate-800/80 dark:shadow-black/30">
+        <div className="overflow-hidden rounded-lg shadow-lg dark:border dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-black/30 dark:ring-1 dark:ring-white/5">
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 zoom={2}
