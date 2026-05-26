@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleMap, useLoadScript, Marker, Polygon } from '@react-google-maps/api';
+import React, { useEffect, useMemo, useState } from 'react';
+import { GoogleMap, useLoadScript, Polygon } from '@react-google-maps/api';
 
 type Location = {
     country: string;
@@ -11,18 +11,30 @@ type TravelMapProps = {
     locations: Location[];
 };
 
+type Coordinate = [lng: number, lat: number];
+type LinearRing = Coordinate[];
+type PolygonCoordinates = LinearRing[];
+type MultiPolygonCoordinates = PolygonCoordinates[];
+
+type CountryFeature = {
+    type: string;
+    properties: {
+        ADMIN: string;
+    };
+    geometry:
+        | {
+            type: 'Polygon';
+            coordinates: PolygonCoordinates;
+        }
+        | {
+            type: 'MultiPolygon';
+            coordinates: MultiPolygonCoordinates;
+        };
+};
+
 type CountryData = {
     type: string;
-    features: {
-        type: string;
-        properties: {
-            ADMIN: string;
-        };
-        geometry: {
-            type: string;
-            coordinates: any[];
-        };
-    }[];
+    features: CountryFeature[];
 };
 
 const mapContainerStyle = {
@@ -35,46 +47,63 @@ const southKoreaPosition = {
     lng: 127.7669,
 };
 
-const TravelMap = ({ locations }: TravelMapProps) => {
+const VisitedCountriesFallback = ({ locations }: TravelMapProps) => (
+    <div className="rounded-lg bg-gray-100 p-4 shadow-inner dark:bg-gray-700">
+        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-gray-200">
+            Visited countries
+        </p>
+        <div className="flex flex-wrap gap-2">
+            {locations.map(location => (
+                <span
+                    key={location.country}
+                    className="rounded-full bg-white px-3 py-1 text-sm text-gray-700 shadow-sm dark:bg-gray-800 dark:text-gray-200"
+                >
+                    {location.country}
+                </span>
+            ))}
+        </div>
+    </div>
+);
+
+type GoogleTravelMapProps = TravelMapProps & {
+    googleMapsApiKey: string;
+};
+
+const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) => {
     const [countryData, setCountryData] = useState<CountryData | null>(null);
-    const [visitedCountries, setVisitedCountries] = useState<string[]>([]);
+    const visitedCountries = useMemo(
+        () => new Set(locations.map(location => location.country)),
+        [locations]
+    );
 
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
+        googleMapsApiKey,
     });
 
     useEffect(() => {
-        // Extract country names from locations
-        const countries = locations.map(loc => loc.country);
-        setVisitedCountries(countries);
+        const controller = new AbortController();
 
-        // Load GeoJSON data
-        fetch('/countries.geo.json')
+        fetch('/countries.geo.json', { signal: controller.signal })
             .then(response => response.json())
-            .then(data => {
+            .then((data: CountryData) => {
                 setCountryData(data);
             })
             .catch(error => {
+                if (error instanceof DOMException && error.name === 'AbortError') {
+                    return;
+                }
+
                 console.error('Error loading GeoJSON data:', error);
             });
-    }, [locations]);
 
-    if (loadError) return <div className="text-center py-8">Error loading maps</div>;
-    if (!isLoaded) return <div className="text-center py-8">Loading maps...</div>;
+        return () => controller.abort();
+    }, []);
 
-    // Function to format coordinates for Google Maps Polygon
-    const formatCoordinates = (coordinates: any[]) => {
-        if (!coordinates || coordinates.length === 0) return [];
+    if (loadError) return <VisitedCountriesFallback locations={locations} />;
+    if (!isLoaded) return <div className="text-center py-8" role="status">Loading maps...</div>;
 
-        // Handle different geometry types
-        if (coordinates[0][0] && typeof coordinates[0][0] === 'number') {
-            // Simple polygon
-            return coordinates.map(coord => ({ lat: coord[1], lng: coord[0] }));
-        } else {
-            // MultiPolygon or complex polygon with holes
-            return coordinates[0].map(coord => ({ lat: coord[1], lng: coord[0] }));
-        }
-    };
+    const formatCoordinates = (coordinates: LinearRing) =>
+        coordinates.map(([lng, lat]) => ({ lat, lng }));
 
     return (
         <div className="rounded-lg overflow-hidden shadow-lg">
@@ -99,17 +128,14 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                     ],
                 }}
             >
-                {/* Render country polygons */}
                 {countryData?.features.map((feature, featureIndex) => {
-
-                    // Check if this country has been visited
-                    const isVisited = visitedCountries.includes(feature.properties.ADMIN);
+                    const isVisited = visitedCountries.has(feature.properties.ADMIN);
 
                     if (isVisited && feature.geometry.type === 'Polygon') {
                         return (
                             <Polygon
                                 key={`polygon-${featureIndex}`}
-                                paths={formatCoordinates(feature.geometry.coordinates)}
+                                paths={formatCoordinates(feature.geometry.coordinates[0])}
                                 options={{
                                     fillColor: '#4285F4',
                                     fillOpacity: 0.6,
@@ -123,7 +149,7 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                         return feature.geometry.coordinates.map((polygon, polygonIndex) => (
                             <Polygon
                                 key={`multipolygon-${featureIndex}-${polygonIndex}`}
-                                paths={formatCoordinates([polygon[0]])}
+                                paths={formatCoordinates(polygon[0])}
                                 options={{
                                     fillColor: '#4285F4',
                                     fillOpacity: 0.6,
@@ -137,17 +163,19 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                     return null;
                 })}
 
-                {/* Render location markers */}
-                {/* {locations.map((location, index) => (
-                    <Marker
-                        key={index}
-                        position={{ lat: location.lat, lng: location.lng }}
-                        title={location.country}
-                    />
-                ))} */}
             </GoogleMap>
         </div>
     );
 };
 
-export default TravelMap; 
+const TravelMap = ({ locations }: TravelMapProps) => {
+    const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+    if (!googleMapsApiKey) {
+        return <VisitedCountriesFallback locations={locations} />;
+    }
+
+    return <GoogleTravelMap locations={locations} googleMapsApiKey={googleMapsApiKey} />;
+};
+
+export default TravelMap;

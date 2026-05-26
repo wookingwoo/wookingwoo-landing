@@ -1,50 +1,76 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import ProjectCard from '../components/ProjectCard';
 import TechStack from '../components/TechStack';
-import TravelMap from '../components/TravelMap';
 import { projects } from '../data/projects';
 import { techCategories } from '../data/techStack';
 import { travelLocations } from '../data/travelLocations';
+
+const TravelMap = dynamic(() => import('../components/TravelMap'), {
+    ssr: false,
+    loading: () => (
+        <div
+            className="h-[252px] rounded-lg bg-gray-100 dark:bg-gray-700"
+            role="status"
+            aria-label="Loading travel map"
+        />
+    ),
+});
 
 const Home = () => {
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <div className="container mx-auto px-4 text-center">
-                    <motion.h1
-                        className="text-3xl md:text-5xl font-bold mb-6"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        wookingwoo world
-                    </motion.h1>
-                    <motion.p
-                        className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        Developer & Creator
-
-                        Hello! I'm a developer who loves creating innovative solutions. I'm passionate about developing user-centric services and enjoy learning and applying new technologies.
-                    </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex justify-center"
-                    >
-                        <a
-                            href="#about"
-                            className="btn bg-transparent border border-white text-white hover:bg-white hover:text-blue-600"
+            <section className="relative min-h-[520px] overflow-hidden text-white">
+                <Image
+                    src="/images/hobbies/drone.jpg"
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/55" />
+                <div className="container relative z-10 flex min-h-[520px] items-center px-4 py-20 text-center">
+                    <div className="mx-auto max-w-3xl">
+                        <motion.h1
+                            className="mb-6 text-4xl font-bold md:text-6xl"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            About Me
-                        </a>
-                    </motion.div>
+                            wookingwoo world
+                        </motion.h1>
+                        <motion.div
+                            className="mx-auto mb-8 max-w-3xl"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            <p className="mb-3 text-lg font-semibold md:text-xl">
+                                Developer & Creator
+                            </p>
+                            <p className="text-base leading-relaxed md:text-xl">
+                                Hello! I&apos;m a developer who loves creating innovative solutions. I&apos;m passionate about developing user-centric services and enjoy learning and applying new technologies.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            className="flex justify-center"
+                        >
+                            <a
+                                href="#about"
+                                className="btn border border-white bg-transparent text-white hover:bg-white hover:text-blue-600"
+                            >
+                                About Me
+                            </a>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -72,7 +98,7 @@ const Home = () => {
                             backend technologies, I enjoy building complete, end-to-end solutions.
                         </p>
 
-                        <div className="flex justify-center space-x-8 mb-12">
+                        <div className="mb-12 flex flex-wrap justify-center gap-6 md:gap-8">
                             <a
                                 href="https://github.com/wookingwoo"
                                 target="_blank"
@@ -142,15 +168,18 @@ const Home = () => {
                                     </a>
                                 </div>
                                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                                    I'm passionate about capturing aerial perspectives with drones.
+                                    I&apos;m passionate about capturing aerial perspectives with drones.
                                     Exploring new heights and angles allows me to see the world from
                                     a different perspective.
                                 </p>
-                                <div className="aspect-video rounded-lg overflow-hidden bg-gray-200">
-                                    {/* Placeholder for drone image */}
-                                    <div className="w-full h-full flex items-center justify-center text-gray-500">
-                                        <img src="/images/hobbies/drone.jpg" alt="Drone Photography" className="w-full h-full object-cover" />
-                                    </div>
+                                <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200">
+                                    <Image
+                                        src="/images/hobbies/drone.jpg"
+                                        alt="Drone Photography"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover"
+                                    />
                                 </div>
                             </div>
 
@@ -158,7 +187,7 @@ const Home = () => {
                                 <h4 className="text-xl font-semibold mb-4">World Travel</h4>
                                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                                     Traveling allows me to experience different cultures, meet new people,
-                                    and gather inspiration from around the world. Below is a map of countries I've visited.
+                                    and gather inspiration from around the world. Below is a map of countries I&apos;ve visited.
                                 </p>
                                 <TravelMap locations={travelLocations} />
                             </div>
@@ -188,4 +217,4 @@ const Home = () => {
     );
 };
 
-export default Home; 
+export default Home;
