@@ -54,7 +54,7 @@ const Home = () => {
                                 Developer & Creator
                             </p>
                             <p className="text-base leading-relaxed md:text-xl">
-                                I build practical web services, automation tools, and AI-powered products with a focus on useful user experiences.
+                                Hello! I&apos;m a developer who loves creating innovative solutions. I&apos;m passionate about developing user-centric services and enjoy learning and applying new technologies.
                             </p>
                         </motion.div>
                         <motion.div
@@ -93,9 +93,9 @@ const Home = () => {
 
                     <div className="max-w-3xl mx-auto mb-16">
                         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 text-center">
-                            I work across frontend, backend, AI, and automation projects,
-                            turning small product ideas into deployed services that are useful,
-                            maintainable, and easy to operate.
+                            I am a passionate developer focused on creating innovative web applications
+                            and services that provide value to users. With expertise in both frontend and
+                            backend technologies, I enjoy building complete, end-to-end solutions.
                         </p>
 
                         <div className="mb-12 flex flex-wrap justify-center gap-6 md:gap-8">
@@ -202,7 +202,7 @@ const Home = () => {
                     <h2 className="section-title">Get In Touch</h2>
                     <div className="max-w-md mx-auto text-center">
                         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-                            Have a project idea, collaboration, or technical question? Send a note and I&apos;ll get back to you.
+                            Just want to say hello? Feel free to reach out!
                         </p>
                         <a
                             href="mailto:contact@wookingwoo.com"

@@ -14,7 +14,7 @@ const siteName = 'wookingwoo world';
 
 const Layout = ({
     children,
-    title = 'wookingwoo world | Developer & Creator',
+    title = 'wookingwoo world',
     description = 'Portfolio of wookingwoo, a developer building web services, automation tools, and AI-powered products.',
 }: LayoutProps) => {
     return (
