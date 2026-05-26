@@ -1,13 +1,24 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import ProjectCard from '../components/ProjectCard';
 import TechStack from '../components/TechStack';
-import TravelMap from '../components/TravelMap';
 import { projects } from '../data/projects';
 import { techCategories } from '../data/techStack';
 import { travelLocations } from '../data/travelLocations';
+
+const TravelMap = dynamic(() => import('../components/TravelMap'), {
+    ssr: false,
+    loading: () => (
+        <div
+            className="h-[252px] rounded-lg bg-gray-100 dark:bg-gray-700"
+            role="status"
+            aria-label="Loading travel map"
+        />
+    ),
+});
 
 const Home = () => {
     return (

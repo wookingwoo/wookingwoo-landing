@@ -47,7 +47,29 @@ const southKoreaPosition = {
     lng: 127.7669,
 };
 
-const TravelMap = ({ locations }: TravelMapProps) => {
+const VisitedCountriesFallback = ({ locations }: TravelMapProps) => (
+    <div className="rounded-lg bg-gray-100 p-4 shadow-inner dark:bg-gray-700">
+        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-gray-200">
+            Visited countries
+        </p>
+        <div className="flex flex-wrap gap-2">
+            {locations.map(location => (
+                <span
+                    key={location.country}
+                    className="rounded-full bg-white px-3 py-1 text-sm text-gray-700 shadow-sm dark:bg-gray-800 dark:text-gray-200"
+                >
+                    {location.country}
+                </span>
+            ))}
+        </div>
+    </div>
+);
+
+type GoogleTravelMapProps = TravelMapProps & {
+    googleMapsApiKey: string;
+};
+
+const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) => {
     const [countryData, setCountryData] = useState<CountryData | null>(null);
     const visitedCountries = useMemo(
         () => new Set(locations.map(location => location.country)),
@@ -55,22 +77,30 @@ const TravelMap = ({ locations }: TravelMapProps) => {
     );
 
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
+        googleMapsApiKey,
     });
 
     useEffect(() => {
-        fetch('/countries.geo.json')
+        const controller = new AbortController();
+
+        fetch('/countries.geo.json', { signal: controller.signal })
             .then(response => response.json())
             .then((data: CountryData) => {
                 setCountryData(data);
             })
             .catch(error => {
+                if (error instanceof DOMException && error.name === 'AbortError') {
+                    return;
+                }
+
                 console.error('Error loading GeoJSON data:', error);
             });
+
+        return () => controller.abort();
     }, []);
 
-    if (loadError) return <div className="text-center py-8">Error loading maps</div>;
-    if (!isLoaded) return <div className="text-center py-8">Loading maps...</div>;
+    if (loadError) return <VisitedCountriesFallback locations={locations} />;
+    if (!isLoaded) return <div className="text-center py-8" role="status">Loading maps...</div>;
 
     const formatCoordinates = (coordinates: LinearRing) =>
         coordinates.map(([lng, lat]) => ({ lat, lng }));
@@ -98,10 +128,7 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                     ],
                 }}
             >
-                {/* Render country polygons */}
                 {countryData?.features.map((feature, featureIndex) => {
-
-                    // Check if this country has been visited
                     const isVisited = visitedCountries.has(feature.properties.ADMIN);
 
                     if (isVisited && feature.geometry.type === 'Polygon') {
@@ -136,17 +163,19 @@ const TravelMap = ({ locations }: TravelMapProps) => {
                     return null;
                 })}
 
-                {/* Render location markers */}
-                {/* {locations.map((location, index) => (
-                    <Marker
-                        key={index}
-                        position={{ lat: location.lat, lng: location.lng }}
-                        title={location.country}
-                    />
-                ))} */}
             </GoogleMap>
         </div>
     );
+};
+
+const TravelMap = ({ locations }: TravelMapProps) => {
+    const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+    if (!googleMapsApiKey) {
+        return <VisitedCountriesFallback locations={locations} />;
+    }
+
+    return <GoogleTravelMap locations={locations} googleMapsApiKey={googleMapsApiKey} />;
 };
 
 export default TravelMap;
