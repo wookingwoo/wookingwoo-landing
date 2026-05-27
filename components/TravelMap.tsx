@@ -43,15 +43,15 @@ const southKoreaPosition = {
 };
 
 const VisitedCountriesFallback = ({ locations }: TravelMapProps) => (
-    <div className="rounded-lg bg-gray-100 p-4 shadow-inner dark:bg-gray-700">
-        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-gray-200">
+    <div className="rounded-lg border border-gray-100 bg-gray-100 p-4 shadow-inner dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-black/30 dark:ring-1 dark:ring-white/5">
+        <p className="mb-3 text-sm font-medium text-gray-700 dark:text-slate-200">
             Visited countries
         </p>
         <div className="flex flex-wrap gap-2">
             {locations.map(location => (
                 <span
                     key={location.country}
-                    className="rounded-full bg-white px-3 py-1 text-sm text-gray-700 shadow-sm dark:bg-gray-800 dark:text-gray-200"
+                    className="rounded-full bg-white px-3 py-1 text-sm text-gray-700 shadow-sm dark:bg-sky-400/10 dark:text-sky-200 dark:ring-1 dark:ring-sky-300/10"
                 >
                     {location.country}
                 </span>
@@ -95,7 +95,7 @@ const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) 
     }, []);
 
     if (loadError) return <VisitedCountriesFallback locations={locations} />;
-    if (!isLoaded) return <div className="text-center py-8" role="status">Loading maps...</div>;
+    if (!isLoaded) return <div className="py-8 text-center dark:text-slate-300" role="status">Loading maps...</div>;
 
     const formatCoordinates = (coordinates: LinearRing) =>
         coordinates.map(([lng, lat]) => ({ lat, lng }));
@@ -121,7 +121,7 @@ const GoogleTravelMap = ({ locations, googleMapsApiKey }: GoogleTravelMapProps) 
     };
 
     return (
-        <div className="rounded-lg overflow-hidden shadow-lg">
+        <div className="overflow-hidden rounded-lg shadow-lg dark:border dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-black/30 dark:ring-1 dark:ring-white/5">
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 zoom={2}

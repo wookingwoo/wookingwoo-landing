@@ -68,32 +68,32 @@ const Header = () => {
     const isDark = theme === 'dark';
 
     return (
-        <header className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-900">
+        <header className="sticky top-0 z-50 border-b border-transparent bg-white/95 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/85 dark:shadow-lg dark:shadow-black/20">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                <Link href="/" className="text-2xl font-bold text-primary">
+                <Link href="/" className="text-2xl font-bold text-primary dark:text-sky-300">
                     wookingwoo
                 </Link>
 
                 <div className="flex items-center gap-3 md:gap-8">
                     {/* Desktop navigation */}
                     <nav className="hidden md:flex space-x-8">
-                        <Link href="/" className="text-gray-700 hover:text-primary dark:text-gray-300">
+                        <Link href="/" className="text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300">
                             Home
                         </Link>
-                        <Link href="#projects" className="text-gray-700 hover:text-primary dark:text-gray-300">
+                        <Link href="#projects" className="text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300">
                             Projects
                         </Link>
-                        <Link href="#about" className="text-gray-700 hover:text-primary dark:text-gray-300">
+                        <Link href="#about" className="text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300">
                             About
                         </Link>
-                        <Link href="#contact" className="text-gray-700 hover:text-primary dark:text-gray-300">
+                        <Link href="#contact" className="text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300">
                             Contact
                         </Link>
                     </nav>
 
                     <button
                         type="button"
-                        className="flex h-10 w-10 items-center justify-center rounded-md text-gray-600 transition-colors hover:bg-gray-100 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+                        className="flex h-10 w-10 items-center justify-center rounded-md text-gray-600 transition-colors hover:bg-gray-100 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:border dark:border-slate-800/80 dark:bg-slate-900/70 dark:text-slate-300 dark:hover:bg-sky-400/10 dark:hover:text-sky-300"
                         onClick={toggleTheme}
                         aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
                         title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -108,7 +108,7 @@ const Header = () => {
                     {/* Mobile menu button */}
                     <button
                         type="button"
-                        className="rounded-md p-2 text-gray-500 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:text-gray-300 md:hidden"
+                        className="rounded-md p-2 text-gray-500 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:text-slate-300 dark:hover:bg-sky-400/10 dark:hover:text-sky-300 md:hidden"
                         onClick={toggleMenu}
                         aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
                         aria-expanded={isMenuOpen}
@@ -126,24 +126,24 @@ const Header = () => {
             {/* Mobile navigation */}
             {isMenuOpen && (
                 <div id="mobile-navigation" className="md:hidden">
-                    <div className="container mx-auto px-4 py-2 space-y-2 bg-white dark:bg-gray-900">
+                    <div className="container mx-auto space-y-2 bg-white px-4 py-2 dark:bg-slate-950/95">
                         <Link href="/"
-                            className="block py-2 text-gray-700 hover:text-primary dark:text-gray-300"
+                            className="block py-2 text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300"
                             onClick={toggleMenu}>
                             Home
                         </Link>
                         <Link href="#projects"
-                            className="block py-2 text-gray-700 hover:text-primary dark:text-gray-300"
+                            className="block py-2 text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300"
                             onClick={toggleMenu}>
                             Projects
                         </Link>
                         <Link href="#about"
-                            className="block py-2 text-gray-700 hover:text-primary dark:text-gray-300"
+                            className="block py-2 text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300"
                             onClick={toggleMenu}>
                             About
                         </Link>
                         <Link href="#contact"
-                            className="block py-2 text-gray-700 hover:text-primary dark:text-gray-300"
+                            className="block py-2 text-gray-700 hover:text-primary dark:text-slate-300 dark:hover:text-sky-300"
                             onClick={toggleMenu}>
                             Contact
                         </Link>

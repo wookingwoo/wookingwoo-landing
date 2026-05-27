@@ -12,20 +12,20 @@ const TechStack = ({ categories }: TechStackProps) => {
             {categories.map((category, index) => (
                 <motion.div
                     key={index}
-                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+                    className="rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-xl dark:shadow-black/30 dark:ring-1 dark:ring-white/5"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                    <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-slate-100">
                         {category.name}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                         {category.technologies.map((tech, techIndex) => (
                             <span
                                 key={techIndex}
-                                className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
+                                className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700 dark:bg-sky-400/10 dark:text-sky-200 dark:ring-1 dark:ring-sky-300/10"
                             >
                                 {tech}
                             </span>

@@ -41,3 +41,4 @@ next-env.d.ts
 
 # LLM
 docs/superpowers/
+.superpowers/

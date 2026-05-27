@@ -12,7 +12,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
     return (
         <motion.div
-            className="project-card bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md flex flex-col"
+            className="project-card flex flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-xl dark:shadow-black/30 dark:ring-1 dark:ring-white/5"
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
         >
@@ -27,8 +27,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 />
             </div>
             <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-slate-100">{project.title}</h3>
+                <p className="text-gray-600 dark:text-slate-300 mb-4 flex-grow">{project.description}</p>
                 <div className="flex items-center justify-between">
                     <a
                         href={project.url}
@@ -46,7 +46,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                                 href={project.githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+                                className="text-gray-700 hover:text-gray-900 dark:text-slate-300 dark:hover:text-sky-300 transition-colors"
                                 title="GitHub"
                                 aria-label={`View ${project.title} on GitHub`}
                             >
@@ -61,7 +61,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                                 href={project.demoVideo}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400 transition-colors"
+                                className="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
                                 title="Watch Demo"
                                 aria-label={`Watch ${project.title} demo`}
                             >
