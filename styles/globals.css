@@ -35,16 +35,16 @@ body {
 }
 
 .project-card {
-  transition: all 0.3s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --tw-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 html.dark .project-card:hover {
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  --tw-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
 .map-container {
