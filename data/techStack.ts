@@ -5,9 +5,9 @@ export const techCategories: TechCategory[] = [
     name: "Frontend",
     technologies: [
       "React",
-      "Next.js (Studying)",
+      "Next.js",
       "JavaScript",
-      "TypeScript (Studying)",
+      "TypeScript",
       "Tailwind CSS",
       "Material UI",
       "Bootstrap",
@@ -20,13 +20,14 @@ export const techCategories: TechCategory[] = [
       "Express",
       "Django",
       "FastAPI",
-      "Nest.js (Studying)",
+      "Nest.js",
     ],
   },
   {
     name: "AI & LLM",
     technologies: [
       "LangChain",
+      "LangGraph",
       "RAG",
       "AI Agent Development",
       "Retrieval",
@@ -61,6 +62,7 @@ export const techCategories: TechCategory[] = [
     name: "IOT",
     technologies: [
       "Raspberry Pi",
+      "ESP32",
       "Arduino",
       "Android",
       "Drone",

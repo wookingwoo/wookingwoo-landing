@@ -45,3 +45,21 @@ test('dark mode keeps cyan-blue accents for interactive elements', () => {
     assert.match(sources, /dark:bg-sky-400\/10/);
     assert.match(sources, /dark:hover:bg-sky-400/);
 });
+
+test('project card hover keeps the dark ring stable during hover animation', () => {
+    const globals = readSource('styles/globals.css');
+    const hoverRule = globals.match(/\.project-card:hover\s*{([^}]*)}/);
+    const darkHoverRule = globals.match(/html\.dark \.project-card:hover\s*{([^}]*)}/);
+
+    assert.match(globals, /\.project-card\s*{\s*transition:\s*box-shadow 0\.2s ease;\s*}/);
+    assert.ok(hoverRule?.[1]);
+    assert.ok(darkHoverRule?.[1]);
+
+    assert.doesNotMatch(hoverRule[1], /transform\s*:/);
+    assert.match(hoverRule[1], /--tw-shadow:/);
+    assert.match(hoverRule[1], /box-shadow:\s*var\(--tw-ring-offset-shadow/);
+    assert.match(hoverRule[1], /var\(--tw-ring-shadow/);
+
+    assert.match(darkHoverRule[1], /--tw-shadow:/);
+    assert.doesNotMatch(darkHoverRule[1], /box-shadow\s*:/);
+});
