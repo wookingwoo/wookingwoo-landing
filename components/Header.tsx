@@ -99,7 +99,7 @@ const Header = () => {
                     href="/"
                     className="text-xl font-bold tracking-tight text-gray-900 transition-opacity hover:opacity-80 dark:text-white"
                 >
-                    wookingwoo<span className="text-gradient">.</span>
+                    wookingwoo
                 </Link>
 
                 <div className="flex items-center gap-3 md:gap-8">

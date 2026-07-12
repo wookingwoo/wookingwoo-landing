@@ -18,7 +18,7 @@ const Footer = () => {
                             href="/"
                             className="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
                         >
-                            wookingwoo<span className="text-gradient">.</span>
+                            wookingwoo
                         </Link>
                         <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">
                             Developer &amp; Creator
@@ -40,9 +40,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-gray-100 pt-6 text-sm text-gray-500 dark:border-white/5 dark:text-slate-500 md:flex-row">
+                <div className="mt-10 border-t border-gray-100 pt-6 text-center text-sm text-gray-500 dark:border-white/5 dark:text-slate-500">
                     <p>© {new Date().getFullYear()} wookingwoo. All rights reserved.</p>
-                    <p>Built with Next.js &amp; Tailwind CSS</p>
                 </div>
             </div>
         </footer>
