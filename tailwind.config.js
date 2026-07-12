@@ -14,6 +14,18 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        display: ["'Instrument Serif'", "Georgia", "serif"],
+      },
+      keyframes: {
+        aurora: {
+          "0%, 100%": { transform: "translate3d(0, 0, 0)" },
+          "33%": { transform: "translate3d(48px, -36px, 0)" },
+          "66%": { transform: "translate3d(-36px, 28px, 0)" },
+        },
+      },
+      animation: {
+        aurora: "aurora 16s ease-in-out infinite",
+        "aurora-slow": "aurora 24s ease-in-out infinite reverse",
       },
     },
   },

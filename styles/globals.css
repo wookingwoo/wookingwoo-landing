@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 15, 23, 42;
   --background-rgb: 255, 255, 255;
   --dark-accent: 56, 189, 248;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   color-scheme: light;
 }
 
@@ -26,6 +27,12 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(var(--dark-accent), 0.25);
 }
 
 .container {
@@ -39,12 +46,12 @@ body {
 }
 
 .project-card:hover {
-  --tw-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --tw-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.16);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 html.dark .project-card:hover {
-  --tw-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  --tw-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
 }
 
 .map-container {
@@ -52,16 +59,56 @@ html.dark .project-card:hover {
   height: 400px;
 }
 
+/* Signature gradient text used for display accents. */
+.text-gradient {
+  background-image: linear-gradient(100deg, #0284c7, #7c3aed 45%, #db2777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html.dark .text-gradient {
+  background-image: linear-gradient(100deg, #38bdf8, #a78bfa 45%, #f0abfc);
+}
+
+/* Faint blueprint grid, faded out radially so it never fights the content. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(100, 116, 139, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.1) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 35%, transparent 100%);
+}
+
+html.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+}
+
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-medium transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-blue-600 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400;
+    @apply bg-primary text-white shadow-lg shadow-primary/25 hover:bg-blue-600 hover:shadow-xl hover:shadow-primary/30 dark:bg-sky-500 dark:text-slate-950 dark:shadow-sky-500/20 dark:hover:bg-sky-400;
+  }
+
+  .btn-ghost {
+    @apply border border-gray-300 bg-transparent text-gray-800 hover:border-gray-400 hover:bg-gray-900/5 dark:border-slate-700 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:bg-white/5;
+  }
+
+  .eyebrow {
+    @apply mb-3 block text-xs font-semibold uppercase tracking-[0.3em] text-primary dark:text-sky-300;
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-10 text-center text-gray-900 dark:text-slate-100;
+    @apply mb-4 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-100 md:text-4xl;
+  }
+
+  .section-lead {
+    @apply mx-auto max-w-2xl text-center text-base leading-relaxed text-gray-600 dark:text-slate-400 md:text-lg;
   }
 }
