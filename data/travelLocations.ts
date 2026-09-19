@@ -22,6 +22,16 @@ export const travelLocations: TravelLocation[] = [
     lng: 103.8198,
   },
   {
+    country: "Malaysia",
+    lat: 4.2105,
+    lng: 101.9758, // Kota Kinabalu
+  },
+  {
+    country: "Brunei",
+    lat: 4.5353,
+    lng: 114.7277, // Bandar Seri Begawan
+  },
+  {
     country: "Australia",
     lat: -33.8688,
     lng: 151.2093, // Sydney
