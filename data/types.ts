@@ -6,6 +6,7 @@ export type Project = {
   demoVideo?: string;
   githubUrl?: string;
   thumbnail: string;
+  thumbnailFit?: "contain";
 };
 
 export type TechCategory = {
