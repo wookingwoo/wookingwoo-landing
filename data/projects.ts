@@ -133,4 +133,14 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/wookingwoo",
     thumbnail: "/images/projects/pi.jpg",
   },
+  {
+    id: "onmyway-ai",
+    title: "OnMyWay AI",
+    description:
+      "An in-car assistant for Pleos Connect that plans errands around deadlines and updates the trip when a stop takes longer than expected.",
+    url: "https://github.com/wookingwoo/onmyway-ai#readme",
+    demoVideo: "https://youtu.be/-e3DBmSvgQM",
+    thumbnail: "/images/projects/onmyway-ai.webp",
+    thumbnailFit: "contain",
+  },
 ];
